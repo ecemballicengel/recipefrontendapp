@@ -19,7 +19,7 @@ function Category() {
       {categories.slice(0,5).map((category) => (
       <a href="/category/">
       <div className="card text-bg-dark" style={{ margin:"20px"}}>
-       <img src="https://picsum.photos/200/200" className="card-img" alt="..." />
+       <img src={category.imageUrl} className="card-img" alt="..." style={{width:"200px", height:"200px"}} />
        <div className="card-img-overlay">
          <h5 className="card-title">{category.name}</h5>
        </div>
@@ -31,7 +31,7 @@ function Category() {
       {categories.slice(5).map((category) => (
       <a href="/category/">
       <div className="card text-bg-dark" style={{ margin:"20px"}}>
-       <img src="https://picsum.photos/200/200" className="card-img" alt="..." />
+       <img src={category.imageUrl} className="card-img" alt="..."  style={{width:"200px", height:"200px"}} />
        <div className="card-img-overlay">
          <h5 className="card-title">{category.name}</h5>
        </div>
