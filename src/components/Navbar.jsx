@@ -17,7 +17,7 @@ function Navbar() {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/eegister">
+                  <Link className="nav-link" to="/register">
                     /Uye Ol
                   </Link>
                 </li>
