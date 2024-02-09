@@ -4,7 +4,6 @@ import Category from './Category'
 function Header() {
   return (
     <div >
-        
         <Category/>
     </div>
   )
