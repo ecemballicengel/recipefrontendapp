@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
+import { Link } from "react-router-dom";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -19,9 +20,8 @@ function Recipes() {
     <div>
       {recipes.map((recipe) => (
        <div className="card" style={{ width: "18rem" }}>
-        <a href="">
-        
-       <img className="card-img-top" src={recipe.titleImage} alt="Card image cap" /> </a>
+        <Link href="/details">
+       <img className="card-img-top" src={recipe.titleImage} alt="Card image cap" /> </Link>
        <div className="card-body">
          <h5 className="card-title">{recipe.title}</h5>
          <p className="card-text"> Hazirlama suresi:
