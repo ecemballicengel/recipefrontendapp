@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
@@ -30,20 +30,20 @@ function Recipes() {
   return (
     <div>
       <div className="container">
-        <h3>Tarifler</h3>
         <div className="card-group" style={{ margin: "25px", padding: "55px" }}>
           <div className="row">
+          <h3 style={{color:"#8f1367"}}>Tarifler</h3>
             {recipes.map((recipe) => (
-              <div className="col-sm-3" style={{ padding: "10px" }}>
+              <div className="col-sm-3" style={{ padding: "50px"}}>
                 <div
-                  className="card"
-                  style={{ width: "14rem", height: "100%" }}
+                  className="card shadow rounded"
+                  style={{ width: "14rem", height: "100%", border:"none" }}
                 >
                   <img
                     src={recipe.titleImage}
                     className="card-img-top"
                     alt="card image"
-                    style={{ maxHeight: "120px", objectFit: "cover",cursor: "pointer" }}
+                    style={{ height: "120px", objectFit: "cover",cursor: "pointer" }}
                     onClick={() => navigate(`/recipe/${recipe.id}`)}
                   />
                   <div className="card-body">
@@ -51,17 +51,10 @@ function Recipes() {
                     <p className="card-text">
                       Hazırlama süresi: {recipe.preparetionTime} dk
                     </p>
-                    <p className="card-text" style={{color:"green"}}>{categories.find(category => category.id === recipe.id)?.name}</p>
+                    <p className="card-text" style={{color:"green"}}>{categories.find(category => category.id === recipe.categoryId)?.name}</p>
                   </div>
                   <div className="card-footer">
-                    <small className="text-body-secondary">
-                      <img
-                        src={recipe.userImage}
-                        alt="userImage"
-                        style={{ width: "9px", height: "9px" }}
-                      />
-                    </small>
-                    <small className="text-body-secondary">Kullanıcı adı</small>
+                    <small className="text-body-secondary"><span className="bi bi-flower1"  style={{color:"#297eba"}}></span>Kullanıcı adı</small>
                   </div>
                 </div>
               </div>

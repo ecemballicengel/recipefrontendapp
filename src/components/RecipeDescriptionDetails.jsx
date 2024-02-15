@@ -21,10 +21,11 @@ function RecipeDescriptionDetails() {
          <div className="container">
           <div className="row">
             <div className="col">
+            <h3 className="card-title" style={{color:"#297eba",textAlign: "left", marginLeft: "15px" }}><span className="bi bi-flower1"></span>Nasil yapilir?</h3>
             {descriptions.map((desc)=>(
               <div className="card mb-3" style={{border:"none"}}>
                 <div className="card-body">
-                  <h3 className="card-title" style={{color:"#297eba"}}>Nasil yapilir?</h3>
+                
                   <ol>
                     <li className="list-group-item::marker" 
                     style={{unicodeBidi:"isolate", fontVariantNumeric:"tabular-nums",textTransform:"none", textIndent:"0px", textAlign:"start", textAlignLast:"last"}}>

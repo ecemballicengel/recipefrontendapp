@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
+import { Link } from "react-router-dom";
+
 function Category() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -17,14 +19,14 @@ function Category() {
     <div className="container text-center">
      <ul className="list-group list-group-horizontal">
       {categories.slice(0,5).map((category) => (
-      <a href="/category/">
+      <Link to="#">
       <div className="card text-bg-dark" style={{ margin:"20px"}}>
        <img src={category.imageUrl} className="card-img" alt="..." style={{width:"200px", height:"200px"}} />
        <div className="card-img-overlay">
          <h5 className="card-title">{category.name}</h5>
        </div>
      </div>     
-      </a>
+      </Link>
       ))}
       </ul>
       <ul className="list-group list-group-horizontal">
