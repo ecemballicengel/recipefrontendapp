@@ -5,6 +5,7 @@ import LoginPage from './page/LoginPage';
 import RegisterPage from './page/RegisterPage';
 import Category from './components/Category';
 import RecipeDetailsPage from './page/RecipeDetailsPage';
+import CreateRecipe from './components/CreateRecipe';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path='/register' element={<RegisterPage/>}/>
       <Route path='/kategori' element={<Category/>}/>
       <Route path='/recipe/:id' element={<RecipeDetailsPage/>}/>
+      <Route path='/tarifEkle' element={<CreateRecipe/>}/>
      </Routes>
     </div>
   );

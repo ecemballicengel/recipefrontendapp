@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
 import { useParams } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 function RecipeIngradientsDetails() {
   const [ingredients, setIngredients] = useState([]);
   const [amountTypes, setAmountTypes] = useState([]);
@@ -37,7 +39,7 @@ function RecipeIngradientsDetails() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h3 style={{ color: "#297eba" }}>Malzemeler</h3>
+            <h3 style={{ color: "#297eba",textAlign: "left", marginLeft: "15px"  }}><span className="bi bi-flower1"></span>Malzemeler</h3>
             <div className="card" style={{ width: "28rem", border:"none"}}>
               <ul className="list-group list-group-flush">
                 {ingredients.map((ingredient) => (
