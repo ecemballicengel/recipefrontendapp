@@ -43,8 +43,8 @@ function GetMenu() {
             onClick={() => navigate(`/recipe/${menu.id}`)}
           />
           <Carousel.Caption>
-            <h3>{menu.title}</h3>
-            <p>Hazırlama süresi: {menu.preparetionTime} dk</p>
+            <h3  style={{fontSize:"50px"}}>{menu.title}</h3>
+            <p style={{fontSize:"20px"}}>Hazırlama süresi: {menu.preparetionTime} dk</p>
             <p style={{ color: "green" }}>
               {categories.find((category) => category.id === menu.categoryId)?.name}
             </p>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Cookies from "js-cookie";
 
-function Navbar() {
+function MyNavbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!Cookies.get("token"));
 
   const handleLogout = () => {
@@ -30,7 +30,7 @@ function Navbar() {
           {isAuthenticated ? (
           <>
           <li className="nav-item">
-          <Link className="nav-link" to="#">
+          <Link className="nav-link" to="/profil">
                 Kullanici Profili
               </Link>
             </li>
@@ -61,4 +61,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default MyNavbar;
