@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../img/logo.png";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Cookies from "js-cookie";
+import getData from "../services/GetService";
+import { useParams } from "react-router-dom";
+
 
 function MyNavbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(!!Cookies.get("token"));
@@ -12,6 +15,23 @@ function MyNavbar() {
     setIsAuthenticated(false);
     
   };
+  const [users, setUsers] = useState([]);
+  const { id } = useParams();
+  const[loading, setLoading]=useState("");
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const fetchedUsers = await getData(`User/${Cookies.get("userId")}`);
+        setUsers([fetchedUsers]);
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchUsers();
+  },[id]);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -29,11 +49,13 @@ function MyNavbar() {
           <ul className="navbar-nav ms-auto">
           {isAuthenticated ? (
           <>
-          <li className="nav-item">
-          <Link className="nav-link" to="/profil">
+          {users.map((user)=>(          
+          <li className="nav-item"  key={user.userId}>
+          <Link className="nav-link" to={`/user/${user.userId}`}>
                 Kullanici Profili
               </Link>
             </li>
+            ))}
             <li className="nav-item">
               <button className="nav-link" onClick={handleLogout}>
                 /Cikis Yap

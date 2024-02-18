@@ -14,6 +14,7 @@ const loginService = async (userName, email, password) => {
     const response = await axios.post(url, request);
     const token ="Bearer " + response.data.authToken;
     Cookies.set("token", token, { expires: 7, secure: true });
+    Cookies.set("userId", response.data.userId)
   } catch (error) {
     console.log("Veriler getirilememistir");
   }

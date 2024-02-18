@@ -7,6 +7,7 @@ import Category from './components/Category';
 import RecipeDetailsPage from './page/RecipeDetailsPage';
 import CreateRecipe from './components/CreateRecipe';
 import ProfilPage from './page/ProfilPage';
+import UserRecipeEdit from './components/UserRecipeEdit';
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
       <Route path='/kategori' element={<Category/>}/>
       <Route path='/recipe/:id' element={<RecipeDetailsPage/>}/>
       <Route path='/tarifEkle' element={<CreateRecipe/>}/>
-      <Route path='/profil' element={<ProfilPage/>}/>
+      <Route path='/user/:id' element={<ProfilPage/>}/>
+      <Route path='/tarifiniGuncelle' element={<UserRecipeEdit/>}/>
      </Routes>
     </div>
   );
