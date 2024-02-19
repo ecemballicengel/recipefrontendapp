@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
 import {useNavigate, useParams } from "react-router-dom";
+
+
 function UserRecipe() {
     const [userRecipes, setUserRecipes] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -28,8 +30,8 @@ function UserRecipe() {
         fetchCategories();
       }, []);
 
-      const  handleButton=()=>{
-        navigate("/tarifiniGuncelle")
+      const  handleButton=(id)=>{
+        navigate(`/usertarif/${id}`)
       };
   return (
     <div>
@@ -37,10 +39,10 @@ function UserRecipe() {
         <div className="card-group" style={{ margin: "25px", padding: "55px", overflowY:"scroll", height:"500px" }}>
           <div className="row">
             {userRecipes.map((recipe) => (
-              <div className="col-sm-3" style={{ padding: "50px"}}>
+              <div className="col-sm-6" style={{ padding: "50px"}}>
                 <div
                   className="card shadow rounded"
-                  style={{ width: "10rem", height: "100%", border:"none" }}
+                  style={{ width: "15rem", height: "100%", border:"none" }}
                 >
                   <img
                     src={recipe.titleImage}
@@ -58,7 +60,7 @@ function UserRecipe() {
                    
                   </div>
                   <div>
-                  <button type="button" className="btn btn-primary" onClick={handleButton}> <span class="bi bi-pencil-square"></span></button>
+                  <button type="button" className="btn btn-primary" onClick={()=>handleButton(recipe.id)}> <span class="bi bi-pencil-square"></span></button>
                   </div>
                   <div className="card-footer">
                         <small className="text-body-secondary">

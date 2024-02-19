@@ -8,6 +8,7 @@ import RecipeDetailsPage from './page/RecipeDetailsPage';
 import CreateRecipe from './components/CreateRecipe';
 import ProfilPage from './page/ProfilPage';
 import UserRecipeEdit from './components/UserRecipeEdit';
+import AdminPage from './page/AdminPage';
 
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
       <Route path='/recipe/:id' element={<RecipeDetailsPage/>}/>
       <Route path='/tarifEkle' element={<CreateRecipe/>}/>
       <Route path='/user/:id' element={<ProfilPage/>}/>
-      <Route path='/tarifiniGuncelle' element={<UserRecipeEdit/>}/>
+      <Route path='/usertarif/:id' element={<UserRecipeEdit/>}/>
+      <Route path='/adminPage' element={<AdminPage/>}/>
      </Routes>
     </div>
   );

@@ -261,7 +261,7 @@ function CreateRecipe() {
               <div
                 className="row"
                 style={{
-                  border: "1px solid",
+                  border: "none",
                   padding: "5px",
                   marginTop: "20px",
                   height: "250px",
