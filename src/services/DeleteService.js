@@ -5,11 +5,11 @@ const baseUrl = "https://localhost:7056/api";
 const deleteService = async (endpoint,request) => {
     try {
       let url = baseUrl + "/" + endpoint;
-      
-      const response = await axios.delete(url, request,{
+      const response = await axios.delete(url,{
         headers: {
             Authorization: `${Cookies.get("token")}`,
           },
+        data:request
       });
      return response.data
     } catch (error) {
