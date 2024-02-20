@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import MyNavbar from "./MyNavbar";
 import { useParams } from "react-router-dom";
 import getData from "../services/GetService";
+import putService from "../services/PutService";
+
 
 function UserRecipeEdit() {
   //Recipe
@@ -25,6 +27,9 @@ function UserRecipeEdit() {
   //Descriptions
   const [descriptions, setDescriptions] = useState([]);
   const { id } = useParams();
+  const [nextDescriptionId, setNextDescriptionId] = useState(1);
+  const [description, setDescription] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     const fetchRecipeById = async () => {
@@ -39,6 +44,7 @@ function UserRecipeEdit() {
         setCategoryId(fetchedData.recipe.categoryId);
         setIngredients(fetchedData.ingredients);
         setNextId(ingredients.length + 1);
+        setNextDescriptionId(descriptions.length + 1);
         setDescriptions(fetchedData.descriptions);
       } catch (error) {
         console.error("Malzemeler alinamadi:", error);
@@ -115,7 +121,6 @@ function UserRecipeEdit() {
 
     // Update the state with the new array
     setIngredients(updatedValues);
-    
   };
 
   const handleIngredientAmountTypeChange = (event, index) => {
@@ -147,12 +152,46 @@ function UserRecipeEdit() {
         setDescriptions(updatedValues);
       };
       // Resmi base64'e çevir
-      reader.readAsDataURL(file);  }; 
+      reader.readAsDataURL(file);
+    }
     // Update the state with the new array
 
     console.log(descriptions);
   };
-  
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        // Base64 formatına çevrilmiş resim verisi
+        const base64Image = reader.result;
+        setImageUrl(base64Image);
+      };
+      // Resmi base64'e çevir
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleUpdate = async () =>{
+    let request = {
+      "recipeId":id,
+      "updateRecipeRequestDto":{
+        id,
+        title,
+        titleImage,
+        numberOfPeople,
+        preparetionTime,
+        cookingTime,
+        categoryId
+      },
+      "updateRecipeDescriptionRequestDto":[...descriptions],      
+      "updateRecipeIngredientRequestDto":[...ingredients]     
+    }
+
+    await putService("RecipeBusinnessWorkFlow",request);
+
+  }
 
   return (
     <div>
@@ -331,19 +370,20 @@ function UserRecipeEdit() {
             </div>
           ))}
         </div>
-        <div className="row">
-          <div className="col">
-            <label>Adet Bilgisi</label>
+        <div className="row" style={{ padding: "20px", margin: "20px" }}>
+          <div className="col-4">
+            <label style={{ paddingRight: "10px" }}>Malzeme Miktari:</label>
             <input
               type="number"
               id="amount"
-              placeholder="Adet bilgisi"
-              title="Adet Bilgisi"
+              placeholder="Miktar bilgisi"
+              title="Malzeme Miktari"
               onChange={(e) => setAmount(e.target.value)}
             />
           </div>
-          <div className="col">
+          <div className="col-4">
             <select
+              className="form-select"
               id="amount"
               value={amountTypeId}
               onChange={(e) => setAmountTypeId(e.target.value)}
@@ -358,7 +398,8 @@ function UserRecipeEdit() {
               ))}
             </select>
           </div>
-          <div className="col">
+          <div className="col-4">
+            <label style={{ paddingRight: "10px" }}>Malzeme Adi: </label>
             <input
               type="text"
               id="name"
@@ -370,6 +411,7 @@ function UserRecipeEdit() {
           <div className="col" style={{ margin: "5px" }}>
             <button
               className="btn btn-sm btn-primary"
+              style={{ marginBottom: "6px", marginLeft: "15px" }}
               onClick={(e) => {
                 e.preventDefault();
                 setIngredients([
@@ -388,7 +430,7 @@ function UserRecipeEdit() {
               }}
             >
               {" "}
-              Malzeme Ekle
+              Ekle
             </button>
           </div>
         </div>
@@ -399,18 +441,134 @@ function UserRecipeEdit() {
       >
         <h3>Nasil Yapilir</h3>
         {descriptions.map((description, index) => (
-          <div className="row">
-            <div className="col">
-              <label>Tarif: </label>
-              <textarea value={description.description} onChange={(event) => handleDescriptionDescriptionChange(event,index)}></textarea>
+          <div className="row" style={{ padding: "25px" }}>
+            <div className="col-7">
+              <label style={{ fontWeight: "bold" }}>Tarif: </label>
+              <div
+                style={{
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                  padding: "5px",
+                }}
+              >
+                <textarea
+                  value={description.description}
+                  onChange={(event) =>
+                    handleDescriptionDescriptionChange(event, index)
+                  }
+                  style={{
+                    width: "100%",
+                    height: "230px",
+                    boxSizing: "border-box",
+                  }}
+                ></textarea>
+              </div>
+            </div>
+            <div className="col-3">
+              <label>Resim: </label>
+              <img
+                src={description.imageUrl}
+                value={description.imageUrl}
+                width="180rem"
+              />
+              <input
+                style={{ marginTop: "30px" }}
+                type="file"
+                onChange={(event) => handleDescriptionImageChange(event, index)}
+              />
             </div>
             <div className="col">
-              <label>Resim: </label>
-              <img src={description.imageUrl} value={description.imageUrl} width="200rem"/>
-              <input type="file" onChange={(event) => handleDescriptionImageChange(event,index)}/>
+              {" "}
+              <button
+                className="btn btn-danger "
+                style={{ marginTop: "60px" }}
+                onClick={() => {
+                  setDescriptions(
+                    ingredients.filter((x) => x.id !== description.id)
+                  );
+                }}
+              >
+                Sil
+              </button>{" "}
             </div>
           </div>
         ))}
+
+        {/* Tarif yapilisi ekleme */}
+        <div className="row">
+          <hr />
+          <div className="col-7">
+            <label style={{ fontWeight: "bold" }}>Tarif: </label>
+            <div
+              style={{
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                padding: "5px",
+              }}
+            >
+              <textarea
+                value={description}
+                style={{
+                  width: "100%",
+                  height: "230px",
+                  boxSizing: "border-box",
+                }}
+                onChange={(event) => setDescription(event.target.value)}
+              ></textarea>
+            </div>
+          </div>
+          <div className="col-3">
+            <label>Resim: </label>
+            <img
+              src={description.imageUrl}
+              value={description.imageUrl}
+              width="180rem"
+            />
+            <input
+              style={{ marginTop: "30px" }}
+              type="file"
+              onChange={handleImageChange}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <h4>Tarif Ekle</h4>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <button
+              className="btn btn-sm btn-primary"
+              style={{ marginBottom: "6px", marginLeft: "15px" }}
+              onClick={(e) => {
+                e.preventDefault();
+                setDescriptions([
+                  ...descriptions,
+                  {
+                    id: nextDescriptionId,
+                    description: description,
+                    imageUrl: imageUrl,
+                  },
+                ]);
+                setNextDescriptionId(nextDescriptionId + 1);
+                setAmount(0);
+                setName("");
+                setAmountTypeId(0);
+              }}
+            >
+              {" "}
+              Ekle
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="row" style={{ padding: "25px" }}>
+        <div className="col">
+          <button className="btn btn-lg btn-success" onClick={handleUpdate}>
+            Degisiklikleri Kaydet
+          </button>
+        </div>
       </div>
     </div>
   );

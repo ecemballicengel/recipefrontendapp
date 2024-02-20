@@ -1,5 +1,7 @@
 import React from "react";
 import Users from "../components/Users";
+import AdminRecipe from "../components/AdminRecipe";
+import AdminCategories from "../components/AdminCategories";
 
 function AdminPage() {
   return (
@@ -67,7 +69,7 @@ function AdminPage() {
           aria-labelledby="recipe-tab"
           tabIndex={0}
         >
-          <h3>Tarifler</h3>
+         <AdminRecipe/>
         </div>
         <div
           className="tab-pane fade"
@@ -76,7 +78,7 @@ function AdminPage() {
           aria-labelledby="category-tab"
           tabIndex={0}
         >
-          <h3>Kategoriler</h3>
+          <AdminCategories/>
         </div>
       </div>
     </div>

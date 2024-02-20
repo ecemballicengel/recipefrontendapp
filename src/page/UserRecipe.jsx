@@ -60,11 +60,12 @@ function UserRecipe() {
                    
                   </div>
                   <div>
-                  <button type="button" className="btn btn-primary" onClick={()=>handleButton(recipe.id)}> <span class="bi bi-pencil-square"></span></button>
+                  <button type="button" className="btn btn-warning" onClick={()=>handleButton(recipe.id)}> <span class="bi bi-pencil-square"></span></button>
+                  <button type="button" className="btn btn-danger" onClick={()=>handleButton(recipe.id)}> <span class="bi bi-trash"></span></button>
                   </div>
                   <div className="card-footer">
                         <small className="text-body-secondary">
-                        <img src={recipe.userImage} alt="" style={{maxWidth:"5rem", maxHeight:"4rem"}} />
+                        <img src={recipe.userImage} alt="" style={{maxWidth:"5rem", maxHeight:"4rem",borderRadius:"100px"}} />
                         {recipe.userName}</small>
                   </div>
                 </div>

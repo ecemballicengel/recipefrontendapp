@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import loginService from '../services/LoginService.js';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
@@ -74,6 +74,9 @@ function LoginPage() {
             </div>
           </div>
         </div>
+        <div className="col-8"><Link className="nav-link text-underlined" title="Uye ol" to="/register"  style={{textDecoration:"underline"}}>
+                Uye Olmak icin tiklayiniz.
+              </Link></div>
       </div>
     </div>
   );

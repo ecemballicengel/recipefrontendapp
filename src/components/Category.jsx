@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
 import { Link } from "react-router-dom";
+import MyNavbar from "./MyNavbar";
 
 function Category() {
   const [categories, setCategories] = useState([]);
@@ -16,6 +17,8 @@ function Category() {
     fetchCategories();
   }, []);
   return (
+    <>
+    <MyNavbar/>
     <div className="container text-center">
      <ul className="list-group list-group-horizontal">
       {categories.slice(0,5).map((category) => (
@@ -42,6 +45,7 @@ function Category() {
       ))}
       </ul>
     </div>
+    </>
   );
 }
 

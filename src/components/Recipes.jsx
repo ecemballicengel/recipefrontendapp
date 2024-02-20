@@ -54,7 +54,8 @@ function Recipes() {
                     <p className="card-text" style={{color:"green"}}>{categories.find(category => category.id === recipe.categoryId)?.name}</p>
                   </div>
                   <div className="card-footer">
-                    <small className="text-body-secondary"><span className="bi bi-flower1"  style={{color:"#297eba"}}></span>Kullanıcı adı</small>
+                    <small className="text-body-secondary"><img src={recipe.userImage} alt="" style={{maxWidth:"5rem", maxHeight:"4rem",borderRadius:"100px"}} />
+                        {recipe.userName}Kullanıcı adı</small>
                   </div>
                 </div>
               </div>

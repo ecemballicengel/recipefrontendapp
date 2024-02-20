@@ -15,6 +15,8 @@ const loginService = async (userName, email, password) => {
     const token ="Bearer " + response.data.authToken;
     Cookies.set("token", token, { expires: 7, secure: true });
     Cookies.set("userId", response.data.userId)
+    Cookies.set("role", response.data.role)
+
   } catch (error) {
     console.log("Veriler getirilememistir");
   }
