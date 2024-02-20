@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import postService from '../services/PostService.js';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
    const [userName, setUserName]= useState("");
@@ -93,6 +93,9 @@ function RegisterPage() {
             </div>
           </div>
         </div>
+        <div className="col-8"><Link className="nav-link text-underlined" title="Uye ol" to="/login"  style={{textDecoration:"underline"}}>
+                Giris yapmak icin tiklayiniz.
+              </Link></div>
       </div>
     </div>
   )
