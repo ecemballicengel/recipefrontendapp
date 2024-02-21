@@ -21,21 +21,25 @@ function RecipeDescriptionDetails() {
          <div className="container">
           <div className="row">
             <div className="col">
-            <h3 className="card-title" style={{color:"#297eba",textAlign: "left", marginLeft: "15px" }}><span className="bi bi-flower1"></span>Nasil yapilir?</h3>
+            <h3 className="card-title" style={{color:"#8f1367",textAlign: "left", marginLeft: "15px" }}><span className="bi bi-flower1"></span>Nasil yapilir?</h3>
             {descriptions.map((desc)=>(
               <div className="card mb-3" style={{border:"none"}}>
                 <div className="card-body">
                 
-                  <ol>
+                  <ul>
                     <li className="list-group-item::marker" 
                     style={{unicodeBidi:"isolate", fontVariantNumeric:"tabular-nums",textTransform:"none", textIndent:"0px", textAlign:"start", textAlignLast:"last"}}>
                     <p className="card-text">
                     {desc.description}
                   </p>
                     </li>
-                  </ol>
+                  </ul>
                 </div>
+                {desc.imageUrl ? 
                 <img src={desc.imageUrl} className="card-img-top" alt="resim" style={{ height: "500px", width: "100%", borderRadius:"10px"}}/>
+                :  
+                <p></p>
+                }
               </div>
             ))}
             </div>

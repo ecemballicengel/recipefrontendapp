@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
 import { Link } from "react-router-dom";
 import MyNavbar from "./MyNavbar";
+import Footer from "./Footer";
 
 function Category() {
   const [categories, setCategories] = useState([]);
@@ -20,6 +21,7 @@ function Category() {
     <>
     <MyNavbar/>
     <div className="container text-center" style={{paddingTop:"50px"}}>
+    <h3 style={{ color: "#8f1367" }}>Kategoriler</h3>
      <ul className="list-group list-group-horizontal">
       {categories.slice(0,5).map((category) => (
       <Link to="#">
@@ -45,6 +47,7 @@ function Category() {
       ))}
       </ul>
     </div>
+    <Footer/>
     </>
   );
 }

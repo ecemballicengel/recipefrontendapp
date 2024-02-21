@@ -39,7 +39,7 @@ function RecipeIngradientsDetails() {
       <div className="container">
         <div className="row">
           <div className="col">
-            <h3 style={{ color: "#297eba",textAlign: "left", marginLeft: "15px"  }}><span className="bi bi-flower1"></span>Malzemeler</h3>
+            <h3 style={{ color: "#8f1367",textAlign: "left", marginLeft: "15px"  }}><span className="bi bi-flower1"></span>Malzemeler</h3>
             <div className="card" style={{ width: "28rem", border:"none"}}>
               <ul className="list-group list-group-flush">
                 {ingredients.map((ingredient) => (
@@ -56,7 +56,7 @@ function RecipeIngradientsDetails() {
                 ))}
               </ul>
             </div>
-            <hr style={{borderWidth: "3px", borderColor: "#297eba", borderStyle: "solid" }} />
+            <hr style={{borderWidth: "3px", borderColor: "#8f1367", borderStyle: "solid" }} />
           </div>
         </div>
       </div>

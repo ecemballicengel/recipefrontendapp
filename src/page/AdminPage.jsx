@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Users from "../components/Users";
 import AdminRecipe from "../components/AdminRecipe";
 import AdminCategories from "../components/AdminCategories";
 import MyNavbar from "../components/MyNavbar";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function AdminPage() {
+  const navigate = useNavigate();
+  
+  useEffect(()=>
+  {
+    if(Cookies.get("role")!=="Admin"){
+        navigate("/")
+    }
+  },[])
   return (
-    <>
+    <>    
     <MyNavbar/>
     <div className="container">
       <h3>Yonetim Paneli</h3>

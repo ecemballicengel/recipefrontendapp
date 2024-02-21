@@ -32,7 +32,7 @@ function RecipeDetails() {
         <div className="row">
           {recipes.map((recipe) => (
             <div className="col" key={recipe.id}>
-              <div className="text-overlay" style={{ color: "#297eba" }}>
+              <div className="text-overlay" style={{ color: "#8f1367" }}>
                 <h1 style={{ textAlign: "left", marginLeft: "15px" }}>
                   {recipe.title}
                 </h1>
@@ -71,40 +71,40 @@ function RecipeDetails() {
               </div>
               <div className="row">
                 <div className="col-md-4">
-                  <h3 style={{ color: "#297eba" }}>
+                  <h3 style={{ color: "#8f1367" }}>
                     <span className="bi bi-flower1"></span>Kac kisilik
                   </h3>
                   <h5>{recipe.numberOfPeople}</h5>
                   <hr
                     style={{
                       borderWidth: "3px",
-                      borderColor: "#297eba",
+                      borderColor: "#8f1367",
                       borderStyle: "solid",
                     }}
                   />
                 </div>
                 <div className="col-md-4">
-                  <h3 style={{ color: "#297eba" }}>
+                  <h3 style={{ color: "#8f1367" }}>
                     <span className="bi bi-flower1"></span>Hazirlama suresi
                   </h3>
                   <h5>{recipe.preparetionTime} dakika</h5>
                   <hr
                     style={{
                       borderWidth: "3px",
-                      borderColor: "#297eba",
+                      borderColor: "#8f1367",
                       borderStyle: "solid",
                     }}
                   />
                 </div>
                 <div className="col-md-4">
-                  <h3 style={{ color: "#297eba" }}>
+                  <h3 style={{ color: "#8f1367" }}>
                     <span className="bi bi-flower1"></span>Pisirme suresi
                   </h3>
                   <h5>{recipe.cookingTime} dakika</h5>
                   <hr
                     style={{
                       borderWidth: "3px",
-                      borderColor: "#297eba",
+                      borderColor: "#8f1367",
                       borderStyle: "solid",
                     }}
                   />

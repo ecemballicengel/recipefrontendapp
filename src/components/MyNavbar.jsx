@@ -22,10 +22,7 @@ function MyNavbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const checkAuthentication = async () => {
-      if (!isAuthenticated) {
-        navigate("/");
-      } else {
+    const checkAuthentication = async () => {    
         try {
           const fetchedUsers = await getData(`User/${Cookies.get("userId")}`);
           setUsers([fetchedUsers]);
@@ -34,7 +31,7 @@ function MyNavbar() {
         } finally {
           setLoading(false);
         }
-      }
+      
     };
 
     checkAuthentication();
