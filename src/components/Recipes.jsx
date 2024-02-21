@@ -55,7 +55,7 @@ function Recipes() {
                   </div>
                   <div className="card-footer">
                     <small className="text-body-secondary"><img src={recipe.userImage} alt="" style={{maxWidth:"5rem", maxHeight:"4rem",borderRadius:"100px"}} />
-                        {recipe.userName}Kullanıcı adı</small>
+                        {recipe.userName}</small>
                   </div>
                 </div>
               </div>

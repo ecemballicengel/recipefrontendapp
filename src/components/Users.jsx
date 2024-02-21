@@ -62,12 +62,6 @@ function Users() {
               <td>{user.role}</td>
               <td>
                 <button
-                  className="btn btn-warning"
-                  // onClick={handleEdit}
-                >
-                  <span class="bi bi-pencil-square"></span>
-                </button>
-                <button
                   className="btn btn-danger"
                   onClick={() => handleDelete(user.userId)}
                 >

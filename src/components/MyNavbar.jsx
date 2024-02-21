@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Cookies from "js-cookie";
 import getData from "../services/GetService";
@@ -19,19 +19,27 @@ function MyNavbar() {
   const [users, setUsers] = useState([]);
   const { id } = useParams();
   const [loading, setLoading] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const fetchedUsers = await getData(`User/${Cookies.get("userId")}`);
-        setUsers([fetchedUsers]);
-      } catch (error) {
-      } finally {
-        setLoading(false);
+    const checkAuthentication = async () => {
+      if (!isAuthenticated) {
+        navigate("/");
+      } else {
+        try {
+          const fetchedUsers = await getData(`User/${Cookies.get("userId")}`);
+          setUsers([fetchedUsers]);
+        } catch (error) {
+          console.error("Kullanıcı verileri çekilirken bir hata oluştu:", error);
+        } finally {
+          setLoading(false);
+        }
       }
     };
-    fetchUsers();
-  }, [id]);
+
+    checkAuthentication();
+  }, [id, isAuthenticated, navigate]);
+
 
   return (
     <div>
@@ -51,22 +59,22 @@ function MyNavbar() {
             {isAuthenticated ? (
               <>
                 {users.map((user) => (
-                  <li className="nav-item" key={user.userId}>
+                  <li className="nav-item" key={user?.userId}>
                     {Cookies.get("role") === "Admin" ? (
                       <Link
                         className="nav-link"
                         to="/adminPage"
                         style={{ color: "#8f1367", fontWeight: "bold" }}
                       >
-                        {user.userName}
+                        {user?.userName}
                       </Link>
                     ) : (
                       <Link
                         className="nav-link"
-                        to={`/user/${user.userId}`}
+                        to={`/user/${user?.userId}`}
                         style={{ color: "#8f1367", fontWeight: "bold" }}
                       >
-                        {user.userName}
+                        {user?.userName}
                       </Link>
                     )}
                   </li>

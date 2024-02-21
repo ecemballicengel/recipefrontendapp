@@ -2,9 +2,12 @@ import React from "react";
 import Users from "../components/Users";
 import AdminRecipe from "../components/AdminRecipe";
 import AdminCategories from "../components/AdminCategories";
+import MyNavbar from "../components/MyNavbar";
 
 function AdminPage() {
   return (
+    <>
+    <MyNavbar/>
     <div className="container">
       <h3>Yonetim Paneli</h3>
       <ul className="nav nav-tabs justify-content-center" id="myTab" role="tablist">
@@ -82,6 +85,7 @@ function AdminPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

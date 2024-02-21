@@ -50,7 +50,7 @@ function CategoryEdit() {
   
         await putService(`Admin/Categories`, updatedCategory);
   
-        navigate(`/adminPage/kategoriGuncelle/${id}`);
+        navigate(-1);
 
       } catch (error) {
         console.error("Kategori güncellenirken bir hata oluştu:", error);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
 import postService from "../services/PostService";
+import { useNavigate } from "react-router-dom";
 
 function CreateRecipe() {
   const [categories, setCategories] = useState([]);
@@ -24,6 +25,7 @@ function CreateRecipe() {
   const [imageUrl, setImageUrl] = useState("");
   const [descriptions, setDescriptions] = useState([]);
   const [textId, setTextId] = useState(1);
+  const navigate= useNavigate();
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -99,6 +101,7 @@ function CreateRecipe() {
     try {
       const result = await postService("RecipeBusinnessWorkFlow", request);
       console.log("Başarılı! İşlem sonucu:", result);
+      navigate('/')
     } catch (error) {
       console.error("Hata oluştu:", error);
     }

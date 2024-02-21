@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MyNavbar from "./MyNavbar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import getData from "../services/GetService";
 import putService from "../services/PutService";
 
@@ -30,6 +30,8 @@ function UserRecipeEdit() {
   const [nextDescriptionId, setNextDescriptionId] = useState(1);
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+
+  const navigate=useNavigate();
 
   useEffect(() => {
     const fetchRecipeById = async () => {
@@ -190,6 +192,7 @@ function UserRecipeEdit() {
     }
 
     await putService("RecipeBusinnessWorkFlow",request);
+    navigate(-1);
 
   }
 
