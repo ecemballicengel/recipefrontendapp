@@ -3,6 +3,7 @@ import getData from "../services/GetService";
 import { Link } from "react-router-dom";
 import MyNavbar from "./MyNavbar";
 import Footer from "./Footer";
+import CategoryDetails from "./CategoryDetails";
 
 function Category() {
   const [categories, setCategories] = useState([]);
@@ -24,7 +25,7 @@ function Category() {
     <h3 style={{ color: "#8f1367" }}>Kategoriler</h3>
      <ul className="list-group list-group-horizontal">
       {categories.slice(0,5).map((category) => (
-      <Link to="#">
+      <Link  key={category.id} to={`/Recipe/category/${category.id}`}>
       <div className="card text-bg-dark" style={{ margin:"20px", border:"none"}}>
        <img src={category.imageUrl} className="card-img" alt="..." style={{width:"200px", height:"200px"}} />
        <div className="card-img-overlay">
@@ -36,7 +37,7 @@ function Category() {
       </ul>
       <ul className="list-group list-group-horizontal">
       {categories.slice(5).map((category) => (
-      <Link to="#">
+      <Link  key={category.id} to={`/Recipe/category/${category.id}`}>
       <div className="card text-bg-dark" style={{ margin:"20px",border:"none"}}>
        <img src={category.imageUrl} className="card-img" alt="..."  style={{width:"200px", height:"200px"}} />
        <div className="card-img-overlay">
