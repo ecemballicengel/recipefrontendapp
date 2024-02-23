@@ -5,6 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import Cookies from "js-cookie";
 import getData from "../services/GetService";
 import { useParams } from "react-router-dom";
+import Search from "./Search";
 
 function MyNavbar() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -52,6 +53,7 @@ function MyNavbar() {
               style={{ width: "6rem", height: "6rem", borderRadius: "20px" }}
             />
           </Link>
+          <div className="ms-auto"><Search/></div>
           <ul className="navbar-nav ms-auto">
             {isAuthenticated ? (
               <>

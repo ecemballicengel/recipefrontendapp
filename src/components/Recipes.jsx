@@ -43,11 +43,11 @@ function Recipes() {
                     src={recipe.titleImage}
                     className="card-img-top"
                     alt="card image"
-                    style={{ height: "120px", objectFit: "cover",cursor: "pointer" }}
+                    style={{ height: "200px", objectFit: "cover",cursor: "pointer" }}
                     onClick={() => navigate(`/recipe/${recipe.id}`)}
                   />                  
                   <div className="card-body">
-                    <h5 className="card-title">{recipe.title}</h5>
+                    <h5 className="card-title"  style={{whiteSpace: "break-spaces"}}>{recipe.title}</h5>
                     <p className="card-text">
                       Hazırlama süresi: {recipe.preparetionTime} dk
                     </p>
