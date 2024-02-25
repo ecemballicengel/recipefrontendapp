@@ -13,7 +13,7 @@ const postService = async (endpoint,request) => {
       });
      return response.data
     } catch (error) {
-      console.log("Veriler getirilememistir");
+      console.log(error);
     }
   };
   export default postService;

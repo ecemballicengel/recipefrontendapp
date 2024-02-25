@@ -15,7 +15,7 @@ const getData = async (endpoint) => {
         console.log(response.data);
         return response.data;
     } catch (error) {
-        console.log("Veriler getirilememistir")
+        console.log(error)
     }
 }
 export default getData;

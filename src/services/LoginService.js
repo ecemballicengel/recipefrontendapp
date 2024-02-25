@@ -18,7 +18,7 @@ const loginService = async (userName, email, password) => {
     Cookies.set("role", response.data.role)
 
   } catch (error) {
-    console.log("Veriler getirilememistir");
+    console.log(error);
   }
 };
 export default loginService;
