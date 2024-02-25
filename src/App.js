@@ -12,6 +12,8 @@ import AdminPage from './page/AdminPage';
 import CategoryAdd from './components/CategoryAdd';
 import CategoryEdit from './components/CategoryEdit';
 import CategoryDetails from './components/CategoryDetails';
+import Payment from './components/Payment';
+import Success from './components/Success';
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
       <Route path='/kategoriEkle' element={<CategoryAdd/>}/>
       <Route path='/adminPage/kategoriGuncelle/:id' element={<CategoryEdit/>}/>
       <Route path='/Recipe/category/:id' element={<CategoryDetails/>}/>
+      <Route path='/payment' element={<Payment/>}/>
+      <Route path='/success' element={<Success/>}/>
      </Routes>
     </div>
   );

@@ -32,7 +32,7 @@ function RegisterPage() {
         <div className="col-md-6">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Uye Ol</h2>
+              <h2 className="card-title text-center mb-4">Kullanici Bilgilerini Giriniz</h2>
               <form onSubmit={handleRegister}>
                 <div className="mb-3">
                   <label htmlFor="userName" className="form-label">

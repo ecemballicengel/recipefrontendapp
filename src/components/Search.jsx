@@ -72,8 +72,8 @@ function Search() {
               type="radio"
               name="searchCriteria"
               id="ingredients"
-              checked={searchCriteria == 1}
-              onChange={() => setSearchCriteria(1)}
+              checked={searchCriteria == 2}
+              onChange={() => setSearchCriteria(2)}
             />
             <label className="form-check-label" htmlFor="ingredients">
               Malzeme
@@ -87,8 +87,8 @@ function Search() {
               type="radio"
               name="searchCriteria"
               id="resultDescription"
-              checked={searchCriteria == 2}
-              onChange={() => setSearchCriteria(2)}
+              checked={searchCriteria == 1}
+              onChange={() => setSearchCriteria(1)}
             />
             <label className="form-check-label" htmlFor="resultDescription">
               Açıklama
@@ -116,6 +116,9 @@ function Search() {
                 onClick={closeModal}
               ></button>
             </div>
+            <div className="container">
+              <div className="row justify-content-center">
+                <div className="col">
             <div className="modal-body">
               <div className="row">
                 {searchResults?.map((result) => (
@@ -164,6 +167,9 @@ function Search() {
                   </div>
                 ))}
               </div>
+            </div>
+            </div>
+            </div>
             </div>
             <div className="modal-footer">
               <button
