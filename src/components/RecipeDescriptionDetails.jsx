@@ -38,7 +38,7 @@ function RecipeDescriptionDetails() {
                 {desc.imageUrl ? 
                 <img src={desc.imageUrl} className="card-img-top" alt="resim" style={{ height: "500px", width: "100%", borderRadius:"10px"}}/>
                 :  
-                <p></p>
+                ""
                 }
               </div>
             ))}

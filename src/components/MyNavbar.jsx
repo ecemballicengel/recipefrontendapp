@@ -111,10 +111,10 @@ function MyNavbar() {
                 <li className="nav-item">
                   <Link
                     className="nav-link"
-                    to="/register"
+                    to="/payment"
                     style={{ color: "#8f1367", fontWeight: "bold" }}
                   >
-                    /Uye Ol
+                    /Premium Uyelik
                   </Link>
                 </li>
               </>

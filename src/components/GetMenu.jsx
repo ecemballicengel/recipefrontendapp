@@ -37,7 +37,7 @@ function GetMenu() {
       {menus.map((menu) => (
         <Carousel.Item key={menu.id}>
           <img
-            className="d-block w-100" style={{ height: "500px", borderRadius: "10px" }}
+            className="d-block w-100" style={{ height: "500px", borderRadius: "10px", cursor: "pointer" }}
             src={menu.titleImage}
             alt={`Slide ${menu.id}`}
             onClick={() => navigate(`/recipe/${menu.id}`)}

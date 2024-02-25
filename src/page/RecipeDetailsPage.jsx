@@ -3,6 +3,7 @@ import RecipeDetails from "../components/RecipeDetails";
 import RecipeIngradientsDetails from "../components/RecipeIngradientsDetails";
 import RecipeDescriptionDetails from "../components/RecipeDescriptionDetails";
 import MyNavbar from "../components/MyNavbar";
+import Footer from "../components/Footer";
 
 function RecipeDetailsPage() {
   return (
@@ -13,6 +14,7 @@ function RecipeDetailsPage() {
       <RecipeIngradientsDetails/>
       <RecipeDescriptionDetails/>
      </div>
+     <Footer/>
       </div>
   );
 }
