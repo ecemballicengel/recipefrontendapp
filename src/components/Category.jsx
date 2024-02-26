@@ -3,7 +3,6 @@ import getData from "../services/GetService";
 import { Link } from "react-router-dom";
 import MyNavbar from "./MyNavbar";
 import Footer from "./Footer";
-import CategoryDetails from "./CategoryDetails";
 
 function Category() {
   const [categories, setCategories] = useState([]);

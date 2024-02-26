@@ -1,6 +1,7 @@
 import React, {useState } from "react";
 import loginService from '../services/LoginService.js';
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
@@ -14,11 +15,21 @@ function LoginPage() {
       
       await loginService(userName, email, password);
       console.log("Başarılı giriş!");
-      
+      Swal.fire({
+        icon: 'success',
+        title: 'Giriş Başarılı!',
+        text: 'Hoş geldiniz!',
+      });
+      navigate('/')
     } catch (error) {
-      console.error("Giriş başarısız:", error);
+      console.error("Giriş başarısız:", error); 
+      Swal.fire({
+        icon: 'error',
+        title: 'Giriş Başarısız!',
+        text: error.response.data.message,
+      });
     }
-    navigate('/')
+    
   };
   return (
     <div className="container mt-5" >
