@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import Swal from 'sweetalert2'
 
 const baseUrl = "https://localhost:7056/api";
 
@@ -19,6 +20,12 @@ const loginService = async (userName, email, password) => {
 
   } catch (error) {
     console.log(error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Giriş Başarısız!',
+      text: error.response ? error.response.data.message : 'Bir hata oluştu', 
+    });
+    throw error;
   }
 };
 export default loginService;
