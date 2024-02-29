@@ -12,9 +12,11 @@ function MyNavbar() {
     !!Cookies.get("token")
   );
  
-
   const handleLogout = () => {
     Cookies.remove("token");
+    Cookies.remove("userId");
+    Cookies.remove("role");
+
     setIsAuthenticated(false);
   };
   const [users, setUsers] = useState([]);
