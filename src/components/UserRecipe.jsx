@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import getData from "../services/GetService";
 import {useNavigate, useParams } from "react-router-dom";
 
-
 function UserRecipe() {
     const [userRecipes, setUserRecipes] = useState([]);
     const [categories, setCategories] = useState([]);
