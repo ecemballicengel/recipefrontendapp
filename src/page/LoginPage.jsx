@@ -85,7 +85,7 @@ function LoginPage() {
             </div>
           </div>
         </div>
-        <div className="col-8"><Link className="nav-link text-underlined" title="Uye ol" to="/register"  style={{textDecoration:"underline"}}>
+        <div className="col-8"><Link className="nav-link text-underlined" title="Uye ol" to="/payment"  style={{textDecoration:"underline"}}>
                 Uye Olmak icin tiklayiniz.
               </Link></div>
       </div>

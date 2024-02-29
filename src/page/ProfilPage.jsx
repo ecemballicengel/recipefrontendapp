@@ -4,7 +4,7 @@ import getData from "../services/GetService";
 import { useParams } from "react-router-dom";
 import UserData from "../components/UserData";
 import PasswordUpdate from "../components/PasswordUpdate";
-import UserRecipe from "./UserRecipe";
+import UserRecipe from "../components/UserRecipe";
 
 
 function ProfilPage() {

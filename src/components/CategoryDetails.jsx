@@ -9,7 +9,7 @@ function CategoryDetails() {
   const [recipes, setRecipes] = useState([]);
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
-  const [categoryName, setCategoryName] = useState("");
+
   useEffect(() => {
     const fetchRecipesByCategory = async () => {
       try {
@@ -29,8 +29,6 @@ function CategoryDetails() {
     };   
     fetchCategories();
     fetchRecipesByCategory();
-    
-    
   }, [id]);
   return (
     <div>
